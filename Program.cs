@@ -16,15 +16,18 @@ namespace Bank
             Console.WriteLine(author);
             Console.WriteLine();
 
-            SavingsAccount savingsAccount = new SavingsAccount("940000001", "Jan", "Kowalski", 12.5M, 72080408887);
-            SavingsAccount savingsAccount2 = new SavingsAccount("940000002", "Marek", "Nowak", 12.5M, 72080409998);
-            Account savingsAccount3 = new SavingsAccount("940000003", "Marek", "Nowak", 12.5M, 72080409998);
-            Account savingsAccount4 = new Account("940000003", "Marek", "Nowak", 12.5M, 72080409998);
+            SavingsAccount savingsAccount = new SavingsAccount(1, "Jan", "Kowalski", 72080408887);
+            Account savingsAccount2 = new SavingsAccount(2, "Marek", "Nowak",  72080409998);
+            Account savingsAccount3 = new SavingsAccount(3, "Marek", "Nowak",  72080409998);
+            
 
 
-            BillingAccount billingAccount = new BillingAccount("940000000003", savingsAccount.FirstName, savingsAccount.LastName, 0.0M, savingsAccount.Pesel);
-                        
-            Printer printer = new Printer();
+            Account billingAccount = new BillingAccount(4, savingsAccount.FirstName, savingsAccount.LastName, savingsAccount.Pesel);
+
+            // Nie przejmując się, która klasa tak naprawdę tym drukowaniem się zajmie.
+            // Możemy więc jako typ zmiennej podawać od teraz IPrinter:
+            IPrinter printer = new Printer();
+            
             string fullName = savingsAccount.GetFullName();
             Console.WriteLine("Pierwsze konto w systemie dostał(-a): {0}", fullName);
             printer.Print(savingsAccount);
@@ -32,7 +35,8 @@ namespace Bank
             
             printer.Print(billingAccount);
 
-
+            
+            //Console.WriteLine(savingsAccount.GenerateAccountNumber(1));
 
 
 

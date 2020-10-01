@@ -6,25 +6,19 @@ using System.Threading.Tasks;
 
 namespace Bank
 {
-    class Printer
+    class Printer : IPrinter
     {
-        public void Print(SavingsAccount account)
-        {
-            Console.WriteLine("Dane konta: {0}", account.AccountNumber);
-            Console.WriteLine("Saldo: {0}zł", account.Balance);
-            Console.WriteLine("Imię właściciela: {0}", account.FirstName);
-            Console.WriteLine("Nazwisko właściciela: {0}", account.LastName);
-            Console.WriteLine("PESEL właściciela: {0}", account.Pesel);
-            Console.WriteLine();
-        }
+       // zamiast przeciążać metodę i pisać odrębny kod dla klas BilansAccount i SavingsAccount
+       // tworzymy jedną wspólną metodę dla klasy Account
 
-        public void Print(BillingAccount account)
+        public void Print(Account account)
         {
             Console.WriteLine("Dane konta: {0}", account.AccountNumber);
             Console.WriteLine("Saldo: {0}zł", account.Balance);
             Console.WriteLine("Imię właściciela: {0}", account.FirstName);
             Console.WriteLine("Nazwisko właściciela: {0}", account.LastName);
             Console.WriteLine("PESEL właściciela: {0}", account.Pesel);
+            Console.WriteLine("Typ konta: {0}", account.TypeName());
             Console.WriteLine();
         }
     }

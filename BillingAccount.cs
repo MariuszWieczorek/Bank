@@ -11,11 +11,25 @@ namespace Bank
     {
 
         // Używamy konstruktora bazowego
-        public BillingAccount(string accountNumber, string firstName, string lastName, decimal balance, long pesel)
-               : base(accountNumber, firstName, lastName, balance, pesel)
+        public BillingAccount(int id, string firstName, string lastName,  long pesel)
+               : base(id, firstName, lastName,  pesel)
         { 
         }
-        
+
+
+        // Implementacja Metody Abstrakcyjnej w klasie dziedziczącej
+        // Implementacja takiej metody w klasie dziedziczącej jest banalnie prosta.
+        // Wystarczy, że wstawimy w niej funkcję o takiej samej nazwie tylko słowo abstract zamienimy na override,
+        // co będzie oznaczało, że świadomie nadpisujemy taką funkcję.
+
+        // Polimorfizm
+        // Teraz jeżeli mamy zmienną Account, do której przypiszemy obiekt klasy BillingAccount
+        // to korzystając z metody TypeName() skorzystamy właśnie z tej, którą zapisaliśmy poniżej. Tak samo będzie ze wszystkimi innymi klasami, które dziedziczą po Account.
+        // To o czym tutaj mówię jest częścią mechanizmu, który nazywa się polimorfizmem. 
+        public override string TypeName()
+        {
+            return "ROR";
+        }
 
     }
 }
