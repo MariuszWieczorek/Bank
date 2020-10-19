@@ -19,7 +19,8 @@ namespace Bank
 
         // Implementacja Metody Abstrakcyjnej w klasie dziedziczącej
         // Implementacja takiej metody w klasie dziedziczącej jest banalnie prosta.
-        // Wystarczy, że wstawimy w niej funkcję o takiej samej nazwie tylko słowo abstract zamienimy na override,
+        // Wystarczy, że wstawimy w niej funkcję o takiej samej nazwie
+        // tylko słowo abstract zamienimy na override,
         // co będzie oznaczało, że świadomie nadpisujemy taką funkcję.
 
         // Polimorfizm

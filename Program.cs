@@ -19,23 +19,23 @@ namespace Bank
 
             List<Account> accounts = new List<Account>();
             accounts.Add(new SavingsAccount(1, "Jan", "Kowalski", 72080408887));
-            accounts.Add(new SavingsAccount(2, "Jan", "Kowalski", 72080408887));
+            accounts.Add(new SavingsAccount(2, "Jan", "Szwagierczak", 72080408887));
             accounts.Add(new SavingsAccount(3, "Marek", "Nowak", 72080409998));
-            accounts.Add(new BillingAccount(4, "Marek", "Nowak", 72080409998));
-            accounts.Add(new BillingAccount(5, "Marek", "Nowak", 72080409998));
+            accounts.Add(new BillingAccount(4, "Małgorzata", "Nowakowska", 72080409998));
+            accounts.Add(new BillingAccount(5, "Joanna", "Karbowniczak", 72080409998));
+
+            // dla formalności
+            IEnumerable<Account> account2 = accounts;
 
             // Nie przejmując się, która klasa tak naprawdę tym drukowaniem się zajmie.
             // Możemy więc jako typ zmiennej podawać od teraz IPrinter:
-            IPrinter printer = new Printer();
+            IPrinter printer = new SmallerPrinter();
             
-
 
             foreach(Account x in accounts)
             {
                 printer.Print(x);
             }
-
-            
 
             Console.ReadKey();
         }
